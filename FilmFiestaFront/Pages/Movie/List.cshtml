@@ -1,0 +1,39 @@
+﻿@page
+@model MovieListModel
+@{
+    ViewData["Title"] = "Movie List";
+}
+
+<div class="d-flex justify-content-center mb-3">
+    <button type="button" class="btn btn-success mx-5" onclick="location.href='@Url.Page("/Movie/Add")'">
+        Add Movie
+    </button>
+</div>
+
+<table class="table table-hover text-center align-middle">
+    <thead>
+        <tr>
+            <th class="w-10">Id</th>
+            <th class="w-20">Poster</th>
+            <th class="w-30">Title</th>
+            <th class="w-30">Director</th>
+            <th class="w-10">Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var movie in Model.Movies)
+        {
+            <tr>
+                <td>@movie.Id</td>
+                <td><img class="img-fluid img-thumbnail" style="max-height:150px;" src=@movie.Affiche alt="affiche" /></td>
+                <td>@movie.Titre</td>
+                <td>@movie.Realisateur</td>
+                <td>
+                    <button class="btn btn-outline-primary" onclick="location.href='@Url.Page("/Movie/Details", new {id = movie.Id})'">
+                        Details
+                    </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

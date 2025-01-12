@@ -1,0 +1,21 @@
+﻿@page
+@model FilmFiestaFront.Pages.StatsModel
+@{
+    ViewData["Title"] = "Stats";
+}
+
+<div class="container d-flex flex-column justify-content-center align-items-center">
+    <h2 class="mb-3">Movie Votes</h2>
+    <div class="chart-container d-flex justify-content-center" style="height:70vh; width:70vw">
+        <canvas id="pieChart"></canvas>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        var labels = @Html.Raw(Json.Serialize(Model.Labels));
+        var data = @Html.Raw(Json.Serialize(Model.Data));
+    </script>
+    <script src="~/lib/Chart.js/chart.umd.min.js" type="module"></script>
+    <script src="~/js/initChart.js"></script>
+}

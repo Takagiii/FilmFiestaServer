@@ -1,0 +1,101 @@
+﻿@page
+@model AddMovieModel
+@{
+    ViewData["Title"] = "Add movie";
+}
+
+<h2 class="mb-3">Add Movie</h2>
+<form method="post">
+    <div class="form-group row mb-2">
+        <label class="col-form-label col-sm-2" asp-for="MovieAddRequest.Titre"></label>
+        <div class="col-sm-10">
+            <input asp-for="MovieAddRequest.Titre" class="form-control" required />
+            <span asp-validation-for="MovieAddRequest.Titre" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group d-flex row mb-2">
+        <div class="col-form-label col-sm-2">
+            <label  asp-for="MovieAddRequest.Realisateur"></label>
+            <span class="text-body-secondary">(Optional)</span>
+        </div>
+        <div class="col-sm-10">
+            <input asp-for="MovieAddRequest.Realisateur" class="form-control" />
+            <span asp-validation-for="MovieAddRequest.Realisateur" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group d-flex row mb-2">
+        <div class="col-form-label col-sm-2">
+            <label asp-for="MovieAddRequest.Description"></label>
+            <span class="text-body-secondary">(Optional)</span>
+        </div>
+        <div class="col-sm-10">
+            <textarea asp-for="MovieAddRequest.Description" class="form-control" rows="3"></textarea>
+            <span asp-validation-for="MovieAddRequest.Description" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group d-flex row mb-2">
+        <div class="col-form-label col-sm-2">
+            <label asp-for="MovieAddRequest.EN_Description"></label>
+            <span class="text-body-secondary">(Optional)</span>
+        </div>
+        <div class="col-sm-10">
+            <textarea asp-for="MovieAddRequest.EN_Description" class="form-control" rows="3"></textarea>
+            <span asp-validation-for="MovieAddRequest.EN_Description" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group d-flex row mb-2">
+        <div class="col-form-label col-sm-2">
+            <label asp-for="MovieAddRequest.Duree"></label>
+            <span class="text-body-secondary">(Optional)</span>
+        </div>
+        <div class="col-sm-10">
+            <input type="number" min="0" step="any" asp-for="MovieAddRequest.Duree" class="form-control" />
+            <span asp-validation-for="MovieAddRequest.Duree" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group d-flex row mb-2">
+        <div class="col-form-label col-sm-2">
+            <label asp-for="MovieAddRequest.Date_de_sortie"></label>
+            <span class="text-body-secondary">(Optional)</span>
+        </div>
+        <div class="col-sm-10">
+            <input asp-for="MovieAddRequest.Date_de_sortie" type="date" class="form-control" />
+            <span asp-validation-for="MovieAddRequest.Date_de_sortie" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group d-flex row mb-2">
+        <label class="col-form-label col-sm-2" asp-for="MovieAddRequest.Video"></label>
+        <div class="col-sm-10">
+            <input type="url" asp-for="MovieAddRequest.Video" class="form-control" required />
+            <span asp-validation-for="MovieAddRequest.Video" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group d-flex row mb-2">
+        <label class="col-form-label col-sm-2" asp-for="MovieAddRequest.Affiche"></label>
+        <div class="col-sm-10">
+            <input type="url" asp-for="MovieAddRequest.Affiche" class="form-control" required />
+            <span asp-validation-for="MovieAddRequest.Affiche" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group d-flex row mb-2">
+        <label class="col-form-label col-sm-2" asp-for="MovieAddRequest.Statut"></label>
+        <div class="col-sm-10">
+            <select asp-for="MovieAddRequest.Statut" asp-items="Model.StatutSelectListItems" class="form-select" required></select>
+            <span asp-validation-for="MovieAddRequest.Statut" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group d-flex row mb-2">
+        <label class="col-form-label col-sm-2" asp-for="MovieAddRequest.Genres"></label>
+        <div class="col-sm-10">
+            <select asp-for="MovieAddRequest.Genres" asp-items="Model.GenreSelectListItems" class="form-select" multiple required></select>
+            <span asp-validation-for="MovieAddRequest.Genres" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group text-center">
+        <button type="submit" class="btn btn-success">Add Movie</button>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

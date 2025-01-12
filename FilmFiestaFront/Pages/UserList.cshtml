@@ -1,0 +1,28 @@
+﻿@page
+@using FilmFiestaFront.Helpers
+@model FilmFiestaFront.Pages.UserListModel
+@{
+    ViewData["Title"] = "User list";
+}
+
+<table class="table table-hover text-center align-middle">
+    <thead>
+        <tr>
+            <th class="w-10">Id</th>
+            <th class="w-20">Name</th>
+            <th class="w-20">Role</th>
+            <th class="w-30">Subscription end date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.userDetails)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.Name</td>
+                <td>@user.Role</td>
+                <td>@user.EndDate</td>
+            </tr>
+        }
+    </tbody>
+</table>

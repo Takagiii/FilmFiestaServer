@@ -1,0 +1,12 @@
+@filmfiestaserver_HostAddress = http://localhost:5164
+
+
+GET {{filmfiestaserver_HostAddress}}/helloworld/
+Accept: application/json
+
+###
+
+GET {{filmfiestaserver_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

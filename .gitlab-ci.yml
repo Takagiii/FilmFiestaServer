@@ -1,0 +1,11 @@
+image: mcr.microsoft.com/dotnet/sdk:8.0
+
+build:
+  stage: build
+  script:
+    - dotnet build --no-restore
+
+tests:
+  stage: test
+  script:
+    - dotnet test --no-restore
